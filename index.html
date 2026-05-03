@@ -3,34 +3,113 @@
 <head>
   <title>StudyAI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      transition: 0.3s;
+    }
+
+    .dark {
+      background: #0f172a;
+      color: white;
+    }
+
+    .light {
+      background: #f8fafc;
+      color: black;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .primary {
+      background: #22c55e;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    input {
+      padding: 12px;
+      width: 70%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 10px;
+      width: 220px;
+      background: rgba(255,255,255,0.1);
+    }
+
+  </style>
 </head>
 
-<body style="font-family: Arial; text-align: center; padding: 40px; background:#0f172a; color:white;">
+<body class="dark">
 
-  <h1>📚 StudyAI</h1>
-  <p style="color:#94a3b8;">Get clear explanations for your homework</p>
+<header>
+  <div>📚 StudyAI</div>
+  <button class="btn" onclick="toggleMode()">🌙 / ☀️</button>
+</header>
 
-  <form id="form" style="margin-top:30px;">
-    <input type="text" id="question" placeholder="Type your question..."
-      style="padding:12px; width:70%; max-width:400px; border-radius:8px; border:none;">
+<section class="hero">
+  <h1>Understand your homework. Don’t just copy it.</h1>
+  <p>Type any question and get clear explanations.</p>
+
+  <form id="form">
+    <input type="text" id="question" placeholder="Type your question...">
     <br><br>
-    <button type="submit"
-      style="padding:12px 20px; border:none; border-radius:8px; background:#22c55e; font-weight:bold;">
-      Get Help
-    </button>
+    <button class="btn primary">Get Help</button>
   </form>
 
-  <p id="response" style="margin-top:20px; color:#cbd5f5;"></p>
+  <p id="response"></p>
+</section>
 
-  <script>
-    document.getElementById("form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const q = document.getElementById("question").value;
+<section class="features">
+  <div class="card">📸 Ask anything</div>
+  <div class="card">🧠 Step-by-step answers</div>
+  <div class="card">📈 Improve faster</div>
+</section>
 
-      document.getElementById("response").innerText =
-        "Got it. We're working on your answer 👀";
-    });
-  </script>
+<script>
+function toggleMode() {
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+}
+
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  document.getElementById("response").innerText =
+    "Answer coming soon...";
+});
+</script>
 
 </body>
 </html>
