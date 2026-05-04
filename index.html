@@ -79,39 +79,41 @@
 </header>
 
 <section class="hero">
-  <h1>Understand your homework. Don’t just copy it.</h1>
-  <p>Type any question and get clear explanations.</p>
+  <h1>Solve math problems step-by-step</h1>
+  <p>Type your math question and get clear, simple explanations instantly.</p>
 
-<form id="form">
-  <input type="text" id="question" placeholder="Type your math question..." required>
-  <br><br>
-  <button type="submit" class="btn primary">Get Help</button>
-</form>
+  <form id="form">
+    <input type="text" id="question" placeholder="e.g. 2x + 5 = 15" required>
+    <br><br>
+    <button type="submit" class="btn primary">Get Help</button>
+  </form>
 
-<p id="response" style="margin-top:20px;"></p>
+  <p style="font-size:14px; opacity:0.7;">Free to use • No signup required</p>
 
-<script>
-document.getElementById("form").addEventListener("submit", function(e) {
-  e.preventDefault();
+  <p id="response" style="margin-top:20px;"></p>
 
-  const q = document.getElementById("question").value;
+  <script>
+  document.getElementById("form").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-  document.getElementById("response").innerText =
-    "Solving... 🧠";
+    const q = document.getElementById("question").value;
 
-  setTimeout(() => {
     document.getElementById("response").innerText =
-      "Answer coming soon. We're improving this feature!";
-  }, 1500);
-});
-</script>
+      "Solving your problem... 🧠";
+
+    setTimeout(() => {
+      document.getElementById("response").innerText =
+        "Working on it... you'll get a clear explanation soon.";
+    }, 1500);
+  });
+  </script>
 
 </section>
 
 <section class="features">
-  <div class="card">📸 Ask anything</div>
-  <div class="card">🧠 Step-by-step answers</div>
-  <div class="card">📈 Improve faster</div>
+  <div class="card">📸 Ask any math problem</div>
+  <div class="card">🧠 Step-by-step explanations</div>
+  <div class="card">⚡ Fast and simple answers</div>
 </section>
 
 <script>
