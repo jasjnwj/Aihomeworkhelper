@@ -93,20 +93,36 @@
   <p id="response" style="margin-top:20px;"></p>
 
   <script>
-  document.getElementById("form").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("form").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-    const q = document.getElementById("question").value;
+  const q = document.getElementById("question").value;
+
+  document.getElementById("response").innerText =
+    "Solving your problem... 🧠";
+
+  try {
+    const res = await fetch("http://localhost:3000/ask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        question: q
+      })
+    });
+
+    const data = await res.json();
 
     document.getElementById("response").innerText =
-      "Solving your problem... 🧠";
+      data.answer;
 
-    setTimeout(() => {
-      document.getElementById("response").innerText =
-        "Working on it... you'll get a clear explanation soon.";
-    }, 1500);
-  });
-  </script>
+  } catch (error) {
+    document.getElementById("response").innerText =
+      "Error connecting to AI.";
+  }
+});
+</script>
 
 </section>
 
