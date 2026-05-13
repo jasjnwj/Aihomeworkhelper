@@ -24,20 +24,38 @@
       font-size: 2.5em;  
     }  
   
-    .hero {  
-      text-align: center;  
-      padding: 60px 20px;  
-    }  
-  
-    .hero h2 {  
-      font-size: 2em;  
-    }  
-  
-    .hero p {  
-      color: #cbd5f5;  
-      max-width: 600px;  
-      margin: 20px auto;  
-    }  
+    .<section class="hero">
+  <h2>Understand your homework. Don’t just copy it.</h2>
+
+  <p>
+    Type any math question and get step-by-step explanations instantly.
+  </p>
+
+  <form id="form">
+    <input
+      type="text"
+      id="question"
+      placeholder="e.g. solve 2x + 5 = 15"
+      required
+      style="
+        padding:14px;
+        width:70%;
+        max-width:500px;
+        border:none;
+        border-radius:8px;
+        margin-top:20px;
+      "
+    >
+
+    <br><br>
+
+    <button type="submit" class="btn">
+      Solve with AI
+    </button>
+  </form>
+
+  <p id="response" style="margin-top:25px;"></p>
+</section>
   
     .btn {  
       display: inline-block;  
