@@ -130,6 +130,36 @@
 <footer>  
   <p>© 2026 StudyAI. All rights reserved.</p>  
 </footer>  
-  
+  <script>
+document.getElementById("form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const q = document.getElementById("question").value;
+
+  document.getElementById("response").innerText =
+    "Solving... 🧠";
+
+  try {
+    const res = await fetch("http://localhost:3000/ask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        question: q
+      })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("response").innerText =
+      data.answer;
+
+  } catch (error) {
+    document.getElementById("response").innerText =
+      "Error connecting to AI.";
+  }
+});
+</script>
 </body>  
 </html>  
